@@ -216,15 +216,15 @@ public class Compressor {
                     } catch (Exception e) {
                         throw new KafkaException(e);
                     }
-                case LZ4:
-                    try {
-                        Class outputStreamClass = Class.forName("org.apache.kafka.common.message.KafkaLZ4BlockOutputStream");
-                        OutputStream stream = (OutputStream) outputStreamClass.getConstructor(OutputStream.class)
-                            .newInstance(buffer);
-                        return new DataOutputStream(stream);
-                    } catch (Exception e) {
-                        throw new KafkaException(e);
-                    }
+//                case LZ4:
+//                    try {
+//                        Class outputStreamClass = Class.forName("org.apache.kafka.common.message.KafkaLZ4BlockOutputStream");
+//                        OutputStream stream = (OutputStream) outputStreamClass.getConstructor(OutputStream.class)
+//                            .newInstance(buffer);
+//                        return new DataOutputStream(stream);
+//                    } catch (Exception e) {
+//                        throw new KafkaException(e);
+//                    }
                 default:
                     throw new IllegalArgumentException("Unknown compression type: " + type);
             }
@@ -251,16 +251,16 @@ public class Compressor {
                     } catch (Exception e) {
                         throw new KafkaException(e);
                     }
-                case LZ4:
-                    // dynamically load LZ4 class to avoid runtime dependency
-                    try {
-                        Class inputStreamClass = Class.forName("org.apache.kafka.common.message.KafkaLZ4BlockInputStream");
-                        InputStream stream = (InputStream) inputStreamClass.getConstructor(InputStream.class)
-                            .newInstance(buffer);
-                        return new DataInputStream(stream);
-                    } catch (Exception e) {
-                        throw new KafkaException(e);
-                    }
+//                case LZ4:
+//                    // dynamically load LZ4 class to avoid runtime dependency
+//                    try {
+//                        Class inputStreamClass = Class.forName("org.apache.kafka.common.message.KafkaLZ4BlockInputStream");
+//                        InputStream stream = (InputStream) inputStreamClass.getConstructor(InputStream.class)
+//                            .newInstance(buffer);
+//                        return new DataInputStream(stream);
+//                    } catch (Exception e) {
+//                        throw new KafkaException(e);
+//                    }
                 default:
                     throw new IllegalArgumentException("Unknown compression type: " + type);
             }
