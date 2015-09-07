@@ -205,17 +205,17 @@ public class Compressor {
                     return new DataOutputStream(buffer);
                 case GZIP:
                     return new DataOutputStream(new GZIPOutputStream(buffer, bufferSize));
-                case SNAPPY:
-                    // dynamically load the snappy class to avoid runtime dependency
-                    // on snappy if we are not using it
-                    try {
-                        Class SnappyOutputStream = Class.forName("org.xerial.snappy.SnappyOutputStream");
-                        OutputStream stream = (OutputStream) SnappyOutputStream.getConstructor(OutputStream.class, Integer.TYPE)
-                            .newInstance(buffer, bufferSize);
-                        return new DataOutputStream(stream);
-                    } catch (Exception e) {
-                        throw new KafkaException(e);
-                    }
+//                case SNAPPY:
+//                    // dynamically load the snappy class to avoid runtime dependency
+//                    // on snappy if we are not using it
+//                    try {
+//                        Class SnappyOutputStream = Class.forName("org.xerial.snappy.SnappyOutputStream");
+//                        OutputStream stream = (OutputStream) SnappyOutputStream.getConstructor(OutputStream.class, Integer.TYPE)
+//                            .newInstance(buffer, bufferSize);
+//                        return new DataOutputStream(stream);
+//                    } catch (Exception e) {
+//                        throw new KafkaException(e);
+//                    }
 //                case LZ4:
 //                    try {
 //                        Class outputStreamClass = Class.forName("org.apache.kafka.common.message.KafkaLZ4BlockOutputStream");
@@ -240,17 +240,17 @@ public class Compressor {
                     return new DataInputStream(buffer);
                 case GZIP:
                     return new DataInputStream(new GZIPInputStream(buffer));
-                case SNAPPY:
-                    // dynamically load the snappy class to avoid runtime dependency
-                    // on snappy if we are not using it
-                    try {
-                        Class SnappyInputStream = Class.forName("org.xerial.snappy.SnappyInputStream");
-                        InputStream stream = (InputStream) SnappyInputStream.getConstructor(InputStream.class)
-                            .newInstance(buffer);
-                        return new DataInputStream(stream);
-                    } catch (Exception e) {
-                        throw new KafkaException(e);
-                    }
+//                case SNAPPY:
+//                    // dynamically load the snappy class to avoid runtime dependency
+//                    // on snappy if we are not using it
+//                    try {
+//                        Class SnappyInputStream = Class.forName("org.xerial.snappy.SnappyInputStream");
+//                        InputStream stream = (InputStream) SnappyInputStream.getConstructor(InputStream.class)
+//                            .newInstance(buffer);
+//                        return new DataInputStream(stream);
+//                    } catch (Exception e) {
+//                        throw new KafkaException(e);
+//                    }
 //                case LZ4:
 //                    // dynamically load LZ4 class to avoid runtime dependency
 //                    try {
