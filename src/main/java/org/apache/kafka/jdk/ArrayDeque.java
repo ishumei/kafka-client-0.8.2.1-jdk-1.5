@@ -7,6 +7,7 @@
 
 package org.apache.kafka.jdk;
 import java.io.*;
+import java.util.*;
 
 /**
  * Resizable-array implementation of the {@link Deque} interface.  Array
@@ -14,7 +15,7 @@ import java.io.*;
  * usage.  They are not thread-safe; in the absence of external
  * synchronization, they do not support concurrent access by multiple threads.
  * Null elements are prohibited.  This class is likely to be faster than
- * {@link Stack} when used as a stack, and faster than {@link LinkedList}
+ * {@link java.util.Stack} when used as a stack, and faster than {@link java.util.LinkedList}
  * when used as a queue.
  *
  * <p>Most <tt>ArrayDeque</tt> operations run in amortized constant time.
@@ -28,7 +29,7 @@ import java.io.*;
  * <i>fail-fast</i>: If the deque is modified at any time after the iterator
  * is created, in any way except through the iterator's own <tt>remove</tt>
  * method, the iterator will generally throw a {@link
- * ConcurrentModificationException}.  Thus, in the face of concurrent
+ * java.util.ConcurrentModificationException}.  Thus, in the face of concurrent
  * modification, the iterator fails quickly and cleanly, rather than risking
  * arbitrary, non-deterministic behavior at an undetermined time in the
  * future.
@@ -42,8 +43,8 @@ import java.io.*;
  * should be used only to detect bugs.</i>
  *
  * <p>This class and its iterator implement all of the
- * <em>optional</em> methods of the {@link Collection} and {@link
- * Iterator} interfaces.
+ * <em>optional</em> methods of the {@link java.util.Collection} and {@link
+ * java.util.Iterator} interfaces.
  *
  * <p>This class is a member of the
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
@@ -243,7 +244,7 @@ public class ArrayDeque<E> extends AbstractCollection<E>
     }
 
     /**
-     * @throws NoSuchElementException {@inheritDoc}
+     * @throws java.util.NoSuchElementException {@inheritDoc}
      */
     public E removeFirst() {
         E x = pollFirst();
@@ -388,7 +389,7 @@ public class ArrayDeque<E> extends AbstractCollection<E>
      * <p>This method is equivalent to {@link #offerLast}.
      *
      * @param e the element to add
-     * @return <tt>true</tt> (as specified by {@link Queue#offer})
+     * @return <tt>true</tt> (as specified by {@link java.util.Queue#offer})
      * @throws NullPointerException if the specified element is null
      */
     public boolean offer(E e) {
@@ -494,7 +495,7 @@ public class ArrayDeque<E> extends AbstractCollection<E>
      * elements backwards or forwards in the array.
      *
      * <p>This method is called delete rather than remove to emphasize
-     * that its semantics differ from those of {@link List#remove(int)}.
+     * that its semantics differ from those of {@link java.util.List#remove(int)}.
      *
      * @return true if elements moved backwards
      */

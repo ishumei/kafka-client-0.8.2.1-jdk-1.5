@@ -7,6 +7,9 @@
 
 package org.apache.kafka.jdk;
 
+import java.util.Iterator;
+import java.util.Queue;
+
 /**
  * A linear collection that supports element insertion and removal at
  * both ends.  The name <i>deque</i> is short for "double ended queue"
@@ -104,7 +107,7 @@ package org.apache.kafka.jdk;
  * </table>
  *
  * <p>Deques can also be used as LIFO (Last-In-First-Out) stacks.  This
- * interface should be used in preference to the legacy {@link Stack} class.
+ * interface should be used in preference to the legacy {@link java.util.Stack} class.
  * When a deque is used as a stack, elements are pushed and popped from the
  * beginning of the deque.  Stack methods are precisely equivalent to
  * <tt>Deque</tt> methods as indicated in the table below:
@@ -137,7 +140,7 @@ package org.apache.kafka.jdk;
  * elements, {@link #removeFirstOccurrence removeFirstOccurrence} and
  * {@link #removeLastOccurrence removeLastOccurrence}.
  *
- * <p>Unlike the {@link List} interface, this interface does not
+ * <p>Unlike the {@link java.util.List} interface, this interface does not
  * provide support for indexed access to elements.
  *
  * <p>While <tt>Deque</tt> implementations are not strictly required
@@ -244,7 +247,7 @@ public interface Deque<E> extends Queue<E> {
      * exception if this deque is empty.
      *
      * @return the head of this deque
-     * @throws NoSuchElementException if this deque is empty
+     * @throws java.util.NoSuchElementException if this deque is empty
      */
     E removeFirst();
 
@@ -254,7 +257,7 @@ public interface Deque<E> extends Queue<E> {
      * exception if this deque is empty.
      *
      * @return the tail of this deque
-     * @throws NoSuchElementException if this deque is empty
+     * @throws java.util.NoSuchElementException if this deque is empty
      */
     E removeLast();
 
@@ -281,7 +284,7 @@ public interface Deque<E> extends Queue<E> {
      * throws an exception if this deque is empty.
      *
      * @return the head of this deque
-     * @throws NoSuchElementException if this deque is empty
+     * @throws java.util.NoSuchElementException if this deque is empty
      */
     E getFirst();
 
@@ -291,7 +294,7 @@ public interface Deque<E> extends Queue<E> {
      * throws an exception if this deque is empty.
      *
      * @return the tail of this deque
-     * @throws NoSuchElementException if this deque is empty
+     * @throws java.util.NoSuchElementException if this deque is empty
      */
     E getLast();
 
@@ -361,7 +364,7 @@ public interface Deque<E> extends Queue<E> {
      * <p>This method is equivalent to {@link #addLast}.
      *
      * @param e the element to add
-     * @return <tt>true</tt> (as specified by {@link Collection#add})
+     * @return <tt>true</tt> (as specified by {@link java.util.Collection#add})
      * @throws IllegalStateException if the element cannot be added at this
      *         time due to capacity restrictions
      * @throws ClassCastException if the class of the specified element
@@ -405,7 +408,7 @@ public interface Deque<E> extends Queue<E> {
      * <p>This method is equivalent to {@link #removeFirst()}.
      *
      * @return the head of the queue represented by this deque
-     * @throws NoSuchElementException if this deque is empty
+     * @throws java.util.NoSuchElementException if this deque is empty
      */
     E remove();
 
@@ -430,7 +433,7 @@ public interface Deque<E> extends Queue<E> {
      * <p>This method is equivalent to {@link #getFirst()}.
      *
      * @return the head of the queue represented by this deque
-     * @throws NoSuchElementException if this deque is empty
+     * @throws java.util.NoSuchElementException if this deque is empty
      */
     E element();
 
@@ -478,7 +481,7 @@ public interface Deque<E> extends Queue<E> {
      *
      * @return the element at the front of this deque (which is the top
      *         of the stack represented by this deque)
-     * @throws NoSuchElementException if this deque is empty
+     * @throws java.util.NoSuchElementException if this deque is empty
      */
     E pop();
 
