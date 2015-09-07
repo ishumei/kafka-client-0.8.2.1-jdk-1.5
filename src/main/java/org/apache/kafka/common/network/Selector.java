@@ -135,7 +135,7 @@ public class Selector implements Selectable {
             channel.connect(address);
         } catch (UnresolvedAddressException e) {
             channel.close();
-            throw new IOException("Can't resolve address: " + address, e);
+            throw new IOException("Can't resolve address: " + address);
         } catch (IOException e) {
             channel.close();
             throw e;
