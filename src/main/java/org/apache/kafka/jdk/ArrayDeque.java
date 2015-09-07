@@ -7,6 +7,7 @@
 
 package org.apache.kafka.jdk;
 import java.io.*;
+import java.lang.reflect.Array;
 import java.util.*;
 
 /**
@@ -788,7 +789,7 @@ public class ArrayDeque<E> extends AbstractCollection<E>
     public ArrayDeque<E> clone() {
         try {
             ArrayDeque<E> result = (ArrayDeque<E>) super.clone();
-            result.elements = Arrays.copyOf(elements, elements.length);
+            result.elements = copyOf(elements, elements.length);
             return result;
 
         } catch (CloneNotSupportedException e) {
@@ -836,5 +837,20 @@ public class ArrayDeque<E> extends AbstractCollection<E>
         // Read in all elements in the proper order.
         for (int i = 0; i < size; i++)
             elements[i] = (E)s.readObject();
+    }
+
+    @SuppressWarnings("unchecked")
+    public static <T> T[] copyOf(T[] original, int newLength) {
+        return (T[]) copyOf(original, newLength, original.getClass());
+    }
+
+    public static <T,U> T[] copyOf(U[] original, int newLength, Class<? extends T[]> newType) {
+        @SuppressWarnings("unchecked")
+        T[] copy = ((Object)newType == (Object)Object[].class)
+            ? (T[]) new Object[newLength]
+            : (T[]) Array.newInstance(newType.getComponentType(), newLength);
+        System.arraycopy(original, 0, copy, 0,
+            Math.min(original.length, newLength));
+        return copy;
     }
 }
