@@ -17,3 +17,8 @@ This will install following artifact into local maven cache.
 - cd example; mvn package
 
 This will build a simple console producer.
+
+## 已知问题
+
+- 不支持SNAPPY和LZ4压缩方式
+- 不支持jdk1.6之后添加的TimeUnit.MINUETS, TimeUnit.HOURS, TimeUnit.DAYS.
