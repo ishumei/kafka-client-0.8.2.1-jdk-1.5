@@ -72,12 +72,12 @@ public class Rate implements MeasurableStat {
                 return time;
             case SECONDS:
                 return time / (1000.0);
-            case MINUTES:
-                return time / (60.0 * 1000.0);
-            case HOURS:
-                return time / (60.0 * 60.0 * 1000.0);
-            case DAYS:
-                return time / (24.0 * 60.0 * 60.0 * 1000.0);
+//            case MINUTES:
+//                return time / (60.0 * 1000.0);
+//            case HOURS:
+//                return time / (60.0 * 60.0 * 1000.0);
+//            case DAYS:
+//                return time / (24.0 * 60.0 * 60.0 * 1000.0);
             default:
                 throw new IllegalStateException("Unknown unit: " + unit);
         }
