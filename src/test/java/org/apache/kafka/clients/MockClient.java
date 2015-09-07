@@ -1,6 +1,5 @@
 package org.apache.kafka.clients;
 
-import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -13,6 +12,7 @@ import org.apache.kafka.common.protocol.ApiKeys;
 import org.apache.kafka.common.protocol.types.Struct;
 import org.apache.kafka.common.requests.RequestHeader;
 import org.apache.kafka.common.utils.Time;
+import org.apache.kafka.jdk.ArrayDeque;
 
 /**
  * A mock network client for use testing code

@@ -99,8 +99,8 @@ public class RecordTest {
         byte[] payload = new byte[1000];
         Arrays.fill(payload, (byte) 1);
         List<Object[]> values = new ArrayList<Object[]>();
-        for (byte[] key : Arrays.asList(null, "".getBytes(), "key".getBytes(), payload))
-            for (byte[] value : Arrays.asList(null, "".getBytes(), "value".getBytes(), payload))
+        for (byte[] key : new byte[][] { null, "".getBytes(), "key".getBytes(), payload })
+            for (byte[] value : new byte[][] {null, "".getBytes(), "value".getBytes(), payload })
                 for (CompressionType compression : CompressionType.values())
                     values.add(new Object[] { key, value, compression });
         return values;
