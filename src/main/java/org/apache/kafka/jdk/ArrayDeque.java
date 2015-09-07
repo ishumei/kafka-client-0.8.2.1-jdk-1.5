@@ -903,7 +903,7 @@ public class ArrayDeque<E> extends AbstractCollection<E>
         if (h > t)
           t += n;
         int m = ((h + t) >>> 1) & (n - 1);
-        return new DeqSpliterator<>(deq, h, index = m);
+        return new DeqSpliterator<E>(deq, h, index = m);
       }
       return null;
     }
