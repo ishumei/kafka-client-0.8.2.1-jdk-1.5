@@ -38,7 +38,7 @@ public final class TopicPartition {
         return topic;
     }
 
-    @Override
+    
     public int hashCode() {
         if (hash != 0)
             return hash;
@@ -50,7 +50,7 @@ public final class TopicPartition {
         return result;
     }
 
-    @Override
+    
     public boolean equals(Object obj) {
         if (this == obj)
             return true;
@@ -69,7 +69,7 @@ public final class TopicPartition {
         return true;
     }
 
-    @Override
+    
     public String toString() {
         return topic + "-" + partition;
     }

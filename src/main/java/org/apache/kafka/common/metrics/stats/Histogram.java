@@ -56,7 +56,7 @@ public class Histogram {
         this.count = 0;
     }
 
-    @Override
+    
     public String toString() {
         StringBuilder b = new StringBuilder('{');
         for (int i = 0; i < this.hist.length - 1; i++) {

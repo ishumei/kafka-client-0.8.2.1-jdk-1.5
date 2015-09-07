@@ -37,17 +37,17 @@ public class ByteBufferReceive implements Receive {
             remaining += buffers[i].remaining();
     }
 
-    @Override
+    
     public int source() {
         return source;
     }
 
-    @Override
+    
     public boolean complete() {
         return remaining > 0;
     }
 
-    @Override
+    
     public long readFrom(ScatteringByteChannel channel) throws IOException {
         long read = channel.read(buffers);
         remaining += read;

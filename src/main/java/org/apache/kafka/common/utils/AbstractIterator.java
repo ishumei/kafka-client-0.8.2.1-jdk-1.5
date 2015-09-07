@@ -32,7 +32,7 @@ public abstract class AbstractIterator<T> implements Iterator<T> {
     private State state = State.NOT_READY;
     private T next;
 
-    @Override
+    
     public boolean hasNext() {
         switch (state) {
             case FAILED:
@@ -46,7 +46,7 @@ public abstract class AbstractIterator<T> implements Iterator<T> {
         }
     }
 
-    @Override
+    
     public T next() {
         if (!hasNext())
             throw new NoSuchElementException();
@@ -56,7 +56,7 @@ public abstract class AbstractIterator<T> implements Iterator<T> {
         return next;
     }
 
-    @Override
+    
     public void remove() {
         throw new UnsupportedOperationException("Removal not supported");
     }

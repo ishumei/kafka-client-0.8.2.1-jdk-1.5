@@ -37,7 +37,7 @@ public final class LogEntry {
         return this.record;
     }
 
-    @Override
+    
     public String toString() {
         return "LogEntry(" + offset + ", " + record + ")";
     }

@@ -243,7 +243,7 @@ public class KafkaProducer<K,V> implements Producer<K,V> {
      * Asynchronously send a record to a topic. Equivalent to {@link #send(ProducerRecord, Callback) send(record, null)}
      * @param record  The record to be sent
      */
-    @Override
+    
     public Future<RecordMetadata> send(ProducerRecord<K,V> record) {
         return send(record, null);
     }
@@ -308,7 +308,7 @@ public class KafkaProducer<K,V> implements Producer<K,V> {
      * @param callback A user-supplied callback to execute when the record has been acknowledged by the server (null
      *        indicates no callback)
      */
-    @Override
+    
     public Future<RecordMetadata> send(ProducerRecord<K,V> record, Callback callback) {
         try {
             // first make sure the metadata for the topic is available
@@ -400,13 +400,13 @@ public class KafkaProducer<K,V> implements Producer<K,V> {
                                               " configuration.");
     }
 
-    @Override
+    
     public List<PartitionInfo> partitionsFor(String topic) {
         waitOnMetadata(topic, this.metadataFetchTimeoutMs);
         return this.metadata.fetch().partitionsForTopic(topic);
     }
 
-    @Override
+    
     public Map<MetricName, ? extends Metric> metrics() {
         return Collections.unmodifiableMap(this.metrics.metrics());
     }
@@ -414,7 +414,7 @@ public class KafkaProducer<K,V> implements Producer<K,V> {
     /**
      * Close this producer. This method blocks until all in-flight requests complete.
      */
-    @Override
+    
     public void close() {
         log.trace("Closing the Kafka producer.");
         this.sender.initiateClose();
@@ -437,27 +437,27 @@ public class KafkaProducer<K,V> implements Producer<K,V> {
             this.exception = new ExecutionException(exception);
         }
 
-        @Override
+        
         public boolean cancel(boolean interrupt) {
             return false;
         }
 
-        @Override
+        
         public RecordMetadata get() throws ExecutionException {
             throw this.exception;
         }
 
-        @Override
+        
         public RecordMetadata get(long timeout, TimeUnit unit) throws ExecutionException {
             throw this.exception;
         }
 
-        @Override
+        
         public boolean isCancelled() {
             return false;
         }
 
-        @Override
+        
         public boolean isDone() {
             return true;
         }

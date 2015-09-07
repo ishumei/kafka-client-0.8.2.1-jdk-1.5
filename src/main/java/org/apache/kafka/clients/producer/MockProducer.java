@@ -86,7 +86,7 @@ public class MockProducer implements Producer<byte[],byte[]> {
      * 
      * @see #history()
      */
-    @Override
+    
     public synchronized Future<RecordMetadata> send(ProducerRecord<byte[], byte[]> record) {
         return send(record, null);
     }
@@ -96,7 +96,7 @@ public class MockProducer implements Producer<byte[],byte[]> {
      * 
      * @see #history()
      */
-    @Override
+    
     public synchronized Future<RecordMetadata> send(ProducerRecord<byte[],byte[]> record, Callback callback) {
         int partition = 0;
         if (this.cluster.partitionsForTopic(record.topic()) != null)
@@ -137,7 +137,7 @@ public class MockProducer implements Producer<byte[],byte[]> {
         return Collections.emptyMap();
     }
 
-    @Override
+    
     public void close() {
     }
 

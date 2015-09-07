@@ -42,17 +42,17 @@ public abstract class AbstractRequestResponse {
         struct.writeTo(buffer);
     }
 
-    @Override
+    
     public String toString() {
         return struct.toString();
     }
 
-    @Override
+    
     public int hashCode() {
         return struct.hashCode();
     }
 
-    @Override
+    
     public boolean equals(Object obj) {
         if (this == obj)
             return true;

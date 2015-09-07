@@ -81,19 +81,19 @@ public class AbstractConfigTest {
   
   public static class TestMetricsReporter implements MetricsReporter {
 
-    @Override
+    
     public void configure(Map<String, ?> configs) {
     }
 
-    @Override
+    
     public void init(List<KafkaMetric> metrics) {
 }
 
-    @Override
+    
     public void metricChange(KafkaMetric metric) {
     }
 
-    @Override
+    
     public void close() {
     }
   }

@@ -50,12 +50,12 @@ public class Rate implements MeasurableStat {
         return unit.name().substring(0, unit.name().length() - 2).toLowerCase();
     }
 
-    @Override
+    
     public void record(MetricConfig config, double value, long timeMs) {
         this.stat.record(config, value, timeMs);
     }
 
-    @Override
+    
     public double measure(MetricConfig config, long now) {
         double value = stat.measure(config, now);
         double elapsed = convert(now - stat.oldest(now).lastWindowMs);
@@ -89,12 +89,12 @@ public class Rate implements MeasurableStat {
             super(0.0d);
         }
 
-        @Override
+        
         protected void update(Sample sample, MetricConfig config, double value, long timeMs) {
             sample.value += value;
         }
 
-        @Override
+        
         public double combine(List<Sample> samples, MetricConfig config, long now) {
             double total = 0.0;
             for (int i = 0; i < samples.size(); i++)

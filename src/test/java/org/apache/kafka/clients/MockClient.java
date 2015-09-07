@@ -29,19 +29,19 @@ public class MockClient implements KafkaClient {
         this.time = time;
     }
 
-    @Override
+    
     public boolean isReady(Node node, long now) {
         return ready.contains(node.id());
     }
 
-    @Override
+    
     public boolean ready(Node node, long now) {
         boolean found = isReady(node, now);
         ready.add(node.id());
         return found;
     }
 
-    @Override
+    
     public long connectionDelay(Node node, long now) {
         return 0;
     }
@@ -58,7 +58,7 @@ public class MockClient implements KafkaClient {
         ready.remove(node);
     }
 
-    @Override
+    
     public List<ClientResponse> poll(List<ClientRequest> requests, long timeoutMs, long now) {
         this.requests.addAll(requests);
         List<ClientResponse> copy = new ArrayList<ClientResponse>(this.responses);
@@ -75,25 +75,25 @@ public class MockClient implements KafkaClient {
         responses.add(new ClientResponse(request, time.milliseconds(), false, body));
     }
 
-    @Override
+    
     public int inFlightRequestCount() {
         return requests.size();
     }
 
-    @Override
+    
     public RequestHeader nextRequestHeader(ApiKeys key) {
         return new RequestHeader(key.id, "mock", correlation++);
     }
 
-    @Override
+    
     public void wakeup() {
     }
 
-    @Override
+    
     public void close() {
     }
 
-    @Override
+    
     public Node leastLoadedNode(long now) {
         return null;
     }

@@ -25,17 +25,17 @@ public class MockTime implements Time {
         this.nanos = System.nanoTime();
     }
 
-    @Override
+    
     public long milliseconds() {
         return TimeUnit.MILLISECONDS.convert(this.nanos, TimeUnit.NANOSECONDS);
     }
 
-    @Override
+    
     public long nanoseconds() {
         return nanos;
     }
 
-    @Override
+    
     public void sleep(long ms) {
         this.nanos += TimeUnit.NANOSECONDS.convert(ms, TimeUnit.MILLISECONDS);
     }

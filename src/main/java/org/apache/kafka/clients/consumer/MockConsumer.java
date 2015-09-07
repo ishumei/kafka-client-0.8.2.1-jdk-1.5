@@ -48,7 +48,7 @@ public class MockConsumer implements Consumer<byte[], byte[]> {
         consumedOffsets = new HashMap<TopicPartition, Long>();
     }
     
-    @Override
+    
     public void subscribe(String... topics) {
         if(subscribedPartitions.size() > 0)
             throw new IllegalStateException("Subcription to topics and partitions is mutually exclusive");
@@ -57,7 +57,7 @@ public class MockConsumer implements Consumer<byte[], byte[]> {
         }
     }
 
-    @Override
+    
     public void subscribe(TopicPartition... partitions) {
         if(subscribedTopics.size() > 0)
             throw new IllegalStateException("Subcription to topics and partitions is mutually exclusive");
@@ -90,7 +90,7 @@ public class MockConsumer implements Consumer<byte[], byte[]> {
         }
     }
 
-    @Override
+    
     public Map<String, ConsumerRecords<byte[], byte[]>> poll(long timeout) {
         // hand out one dummy record, 1 per topic
         Map<String, List<ConsumerRecord>> records = new HashMap<String, List<ConsumerRecord>>();
@@ -130,7 +130,7 @@ public class MockConsumer implements Consumer<byte[], byte[]> {
         return recordMetadata;
     }
 
-    @Override
+    
     public OffsetMetadata commit(Map<TopicPartition, Long> offsets, boolean sync) {
         if(!sync)
             return null;
@@ -140,14 +140,14 @@ public class MockConsumer implements Consumer<byte[], byte[]> {
         return new OffsetMetadata(committedOffsets, null);
     }
 
-    @Override
+    
     public OffsetMetadata commit(boolean sync) {
         if(!sync)
             return null;
         return commit(consumedOffsets, sync);
     }
 
-    @Override
+    
     public void seek(Map<TopicPartition, Long> offsets) {
         // change the fetch offsets
         for(Entry<TopicPartition, Long> partitionOffset : offsets.entrySet()) {
@@ -155,7 +155,7 @@ public class MockConsumer implements Consumer<byte[], byte[]> {
         }
     }
 
-    @Override
+    
     public Map<TopicPartition, Long> committed(Collection<TopicPartition> partitions) {
         Map<TopicPartition, Long> offsets = new HashMap<TopicPartition, Long>();
         for(TopicPartition partition : partitions) {
@@ -164,7 +164,7 @@ public class MockConsumer implements Consumer<byte[], byte[]> {
         return offsets;
     }
 
-    @Override
+    
     public Map<TopicPartition, Long> position(Collection<TopicPartition> partitions) {
         Map<TopicPartition, Long> positions = new HashMap<TopicPartition, Long>();
         for(TopicPartition partition : partitions) {
@@ -173,18 +173,18 @@ public class MockConsumer implements Consumer<byte[], byte[]> {
         return positions;
     }
 
-    @Override
+    
     public Map<TopicPartition, Long> offsetsBeforeTime(long timestamp,
             Collection<TopicPartition> partitions) {
         throw new UnsupportedOperationException();
     }
 
-    @Override
+    
     public Map<MetricName, ? extends Metric> metrics() {
         return null;
     }
 
-    @Override
+    
     public void close() {
        // unsubscribe from all partitions
         TopicPartition[] allPartitions = new TopicPartition[subscribedPartitions.size()];

@@ -93,7 +93,7 @@ public final class ProducerRecord<K, V> {
         return partition;
     }
 
-    @Override
+    
     public String toString() {
         String key = this.key == null ? "null" : this.key.toString();
         String value = this.value == null ? "null" : this.value.toString();

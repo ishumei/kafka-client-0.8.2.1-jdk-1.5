@@ -34,52 +34,52 @@ public class CopyOnWriteMap<K, V> implements ConcurrentMap<K, V> {
         this.map = Collections.unmodifiableMap(map);
     }
 
-    @Override
+    
     public boolean containsKey(Object k) {
         return map.containsKey(k);
     }
 
-    @Override
+    
     public boolean containsValue(Object v) {
         return map.containsValue(v);
     }
 
-    @Override
+    
     public Set<java.util.Map.Entry<K, V>> entrySet() {
         return map.entrySet();
     }
 
-    @Override
+    
     public V get(Object k) {
         return map.get(k);
     }
 
-    @Override
+    
     public boolean isEmpty() {
         return map.isEmpty();
     }
 
-    @Override
+    
     public Set<K> keySet() {
         return map.keySet();
     }
 
-    @Override
+    
     public int size() {
         return map.size();
     }
 
-    @Override
+    
     public Collection<V> values() {
         return map.values();
     }
 
-    @Override
+    
     public synchronized void clear() {
         this.map = Collections.emptyMap();
     }
 
-    @Override
+    
     public synchronized V put(K k, V v) {
         Map<K, V> copy = new HashMap<K, V>(this.map);
         V prev = copy.put(k, v);
@@ -87,14 +87,14 @@ public class CopyOnWriteMap<K, V> implements ConcurrentMap<K, V> {
         return prev;
     }
 
-    @Override
+    
     public synchronized void putAll(Map<? extends K, ? extends V> entries) {
         Map<K, V> copy = new HashMap<K, V>(this.map);
         copy.putAll(entries);
         this.map = Collections.unmodifiableMap(copy);
     }
 
-    @Override
+    
     public synchronized V remove(Object key) {
         Map<K, V> copy = new HashMap<K, V>(this.map);
         V prev = copy.remove(key);
@@ -102,7 +102,7 @@ public class CopyOnWriteMap<K, V> implements ConcurrentMap<K, V> {
         return prev;
     }
 
-    @Override
+    
     public synchronized V putIfAbsent(K k, V v) {
         if (!containsKey(k))
             return put(k, v);
@@ -110,7 +110,7 @@ public class CopyOnWriteMap<K, V> implements ConcurrentMap<K, V> {
             return get(k);
     }
 
-    @Override
+    
     public synchronized boolean remove(Object k, Object v) {
         if (containsKey(k) && get(k).equals(v)) {
             remove(k);
@@ -120,7 +120,7 @@ public class CopyOnWriteMap<K, V> implements ConcurrentMap<K, V> {
         }
     }
 
-    @Override
+    
     public synchronized boolean replace(K k, V original, V replacement) {
         if (containsKey(k) && get(k).equals(original)) {
             put(k, replacement);
@@ -130,7 +130,7 @@ public class CopyOnWriteMap<K, V> implements ConcurrentMap<K, V> {
         }
     }
 
-    @Override
+    
     public synchronized V replace(K k, V v) {
         if (containsKey(k)) {
             return put(k, v);

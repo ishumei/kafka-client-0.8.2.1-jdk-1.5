@@ -54,7 +54,7 @@ public class Percentiles extends SampledStat implements CompoundStat {
         }
     }
 
-    @Override
+    
     public List<NamedMeasurable> stats() {
         List<NamedMeasurable> ms = new ArrayList<NamedMeasurable>(this.percentiles.length);
         for (Percentile percentile : this.percentiles) {
@@ -93,12 +93,12 @@ public class Percentiles extends SampledStat implements CompoundStat {
         return value(config, now, 0.5);
     }
 
-    @Override
+    
     protected HistogramSample newSample(long timeMs) {
         return new HistogramSample(this.binScheme, timeMs);
     }
 
-    @Override
+    
     protected void update(Sample sample, MetricConfig config, double value, long timeMs) {
         HistogramSample hist = (HistogramSample) sample;
         hist.histogram.record(value);

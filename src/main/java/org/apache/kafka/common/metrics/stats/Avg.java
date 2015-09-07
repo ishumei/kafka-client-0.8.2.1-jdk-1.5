@@ -25,12 +25,12 @@ public class Avg extends SampledStat {
         super(0.0);
     }
 
-    @Override
+    
     protected void update(Sample sample, MetricConfig config, double value, long now) {
         sample.value += value;
     }
 
-    @Override
+    
     public double combine(List<Sample> samples, MetricConfig config, long now) {
         double total = 0.0;
         long count = 0;

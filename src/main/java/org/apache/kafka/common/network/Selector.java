@@ -119,7 +119,7 @@ public class Selector implements Selectable {
      * @throws IllegalStateException if there is already a connection for that id
      * @throws IOException if DNS resolution fails on the hostname or if the broker is down
      */
-    @Override
+    
     public void connect(int id, InetSocketAddress address, int sendBufferSize, int receiveBufferSize) throws IOException {
         if (this.keys.containsKey(id))
             throw new IllegalStateException("There is already a connection for id " + id);
@@ -149,7 +149,7 @@ public class Selector implements Selectable {
      * Disconnect any connections for the given id (if there are any). The disconnection is asynchronous and will not be
      * processed until the next {@link #poll(long, List) poll()} call.
      */
-    @Override
+    
     public void disconnect(int id) {
         SelectionKey key = this.keys.get(id);
         if (key != null)
@@ -159,7 +159,7 @@ public class Selector implements Selectable {
     /**
      * Interrupt the selector if it is blocked waiting to do I/O.
      */
-    @Override
+    
     public void wakeup() {
         this.selector.wakeup();
     }
@@ -167,7 +167,7 @@ public class Selector implements Selectable {
     /**
      * Close this selector and all associated connections
      */
-    @Override
+    
     public void close() {
         for (SelectionKey key : this.selector.keys())
             close(key);
@@ -195,7 +195,7 @@ public class Selector implements Selectable {
      * @throws IllegalStateException If a send is given for which we have no existing connection or for which there is
      *         already an in-progress send
      */
-    @Override
+    
     public void poll(long timeout, List<NetworkSend> sends) throws IOException {
         clear();
 
@@ -282,22 +282,22 @@ public class Selector implements Selectable {
         this.sensors.ioTime.record(endIo - endSelect, time.milliseconds());
     }
 
-    @Override
+    
     public List<NetworkSend> completedSends() {
         return this.completedSends;
     }
 
-    @Override
+    
     public List<NetworkReceive> completedReceives() {
         return this.completedReceives;
     }
 
-    @Override
+    
     public List<Integer> disconnected() {
         return this.disconnected;
     }
 
-    @Override
+    
     public List<Integer> connected() {
         return this.connected;
     }

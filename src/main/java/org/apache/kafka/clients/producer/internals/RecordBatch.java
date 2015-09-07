@@ -109,7 +109,7 @@ public final class RecordBatch {
         }
     }
 
-    @Override
+    
     public String toString() {
         return "RecordBatch(topicPartition=" + topicPartition + ", recordCount=" + recordCount + ")";
     }

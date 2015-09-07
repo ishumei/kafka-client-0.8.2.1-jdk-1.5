@@ -157,7 +157,7 @@ public class MemoryRecords implements Records {
         return buffer.duplicate();
     }
 
-    @Override
+    
     public Iterator<LogEntry> iterator() {
         ByteBuffer copy = (ByteBuffer) this.buffer.duplicate().flip();
         return new RecordsIterator(copy, CompressionType.NONE, false);
@@ -184,7 +184,7 @@ public class MemoryRecords implements Records {
          * version of the message value, so when we do de-compression allocating an array of the specified size for
          * reading compressed value data is sufficient.
          */
-        @Override
+        
         protected LogEntry makeNext() {
             if (innerDone()) {
                 try {

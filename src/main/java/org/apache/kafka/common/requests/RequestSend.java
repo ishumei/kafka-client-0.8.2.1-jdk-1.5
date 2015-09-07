@@ -47,7 +47,7 @@ public class RequestSend extends NetworkSend {
         return body;
     }
 
-    @Override
+    
     public String toString() {
         return "RequestSend(header=" + header.toString() + ", body=" + body.toString() + ")";
     }

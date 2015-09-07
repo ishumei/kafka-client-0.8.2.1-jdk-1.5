@@ -30,12 +30,12 @@ public class Total implements MeasurableStat {
         this.total = value;
     }
 
-    @Override
+    
     public void record(MetricConfig config, double value, long now) {
         this.total += value;
     }
 
-    @Override
+    
     public double measure(MetricConfig config, long now) {
         return this.total;
     }

@@ -60,17 +60,17 @@ public class Crc32 implements Checksum {
         reset();
     }
 
-    @Override
+    
     public long getValue() {
         return (~crc) & 0xffffffffL;
     }
 
-    @Override
+    
     public void reset() {
         crc = 0xffffffff;
     }
 
-    @Override
+    
     public void update(byte[] b, int off, int len) {
         int localCrc = crc;
 
@@ -116,7 +116,7 @@ public class Crc32 implements Checksum {
         crc = localCrc;
     }
 
-    @Override
+    
     final public void update(int b) {
         crc = (crc >>> 8) ^ T[T8_0_start + ((crc ^ b) & 0xff)];
     }

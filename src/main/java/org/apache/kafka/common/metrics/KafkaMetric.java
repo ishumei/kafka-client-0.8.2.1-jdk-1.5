@@ -41,12 +41,12 @@ public final class KafkaMetric implements Metric {
         return this.config;
     }
 
-    @Override
+    
     public MetricName metricName() {
         return this.metricName;
     }
 
-    @Override
+    
     public double value() {
         synchronized (this.lock) {
             return value(time.milliseconds());

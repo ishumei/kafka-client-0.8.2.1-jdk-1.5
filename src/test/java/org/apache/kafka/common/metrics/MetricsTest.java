@@ -233,7 +233,7 @@ public class MetricsTest {
     public static class ConstantMeasurable implements Measurable {
         public double value = 0.0;
 
-        @Override
+        
         public double measure(MetricConfig config, long now) {
             return value;
         }

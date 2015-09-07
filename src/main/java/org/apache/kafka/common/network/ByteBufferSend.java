@@ -36,22 +36,22 @@ public class ByteBufferSend implements Send {
         this.size = remaining;
     }
 
-    @Override
+    
     public int destination() {
         return destination;
     }
 
-    @Override
+    
     public boolean completed() {
         return remaining <= 0;
     }
 
-    @Override
+    
     public ByteBuffer[] reify() {
         return this.buffers;
     }
 
-    @Override
+    
     public int remaining() {
         return this.remaining;
     }
@@ -60,7 +60,7 @@ public class ByteBufferSend implements Send {
         return this.size;
     }
 
-    @Override
+    
     public long writeTo(GatheringByteChannel channel) throws IOException {
         long written = channel.write(buffers);
         if (written < 0)

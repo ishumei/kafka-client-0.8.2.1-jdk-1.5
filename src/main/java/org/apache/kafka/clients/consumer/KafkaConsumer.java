@@ -481,7 +481,7 @@ public class KafkaConsumer<K,V> implements Consumer<K,V> {
      * </ul> 
      * @param topics A variable list of topics that the consumer wants to subscribe to
      */
-    @Override
+    
     public void subscribe(String... topics) {
         if(subscribedPartitions.size() > 0)
             throw new IllegalStateException("Subcription to topics and partitions is mutually exclusive");
@@ -496,7 +496,7 @@ public class KafkaConsumer<K,V> implements Consumer<K,V> {
      * <p>
      * @param partitions Partitions to incrementally subscribe to
      */
-    @Override
+    
     public void subscribe(TopicPartition... partitions) {
         if(subscribedTopics.size() > 0)
             throw new IllegalStateException("Subcription to topics and partitions is mutually exclusive");
@@ -549,7 +549,7 @@ public class KafkaConsumer<K,V> implements Consumer<K,V> {
      * @param timeout  The time, in milliseconds, spent waiting in poll if data is not available. If 0, waits indefinitely. Must not be negative
      * @return map of topic to records since the last fetch for the subscribed list of topics and partitions
      */
-    @Override
+    
     public Map<String, ConsumerRecords<K,V>> poll(long timeout) {
         // TODO Auto-generated method stub
         return null;
@@ -565,7 +565,7 @@ public class KafkaConsumer<K,V> implements Consumer<K,V> {
      * @return An {@link OffsetMetadata} object that contains the partition, offset and a corresponding error code. Returns null
      * if the sync flag is set to false.  
      */
-    @Override
+    
     public OffsetMetadata commit(Map<TopicPartition, Long> offsets, boolean sync) {
         throw new UnsupportedOperationException();
     }
@@ -580,7 +580,7 @@ public class KafkaConsumer<K,V> implements Consumer<K,V> {
      * @return An {@link OffsetMetadata} object that contains the partition, offset and a corresponding error code. Returns null
      * if the sync flag is set to false.
      */
-    @Override
+    
     public OffsetMetadata commit(boolean sync) {
         throw new UnsupportedOperationException();
     }
@@ -590,7 +590,7 @@ public class KafkaConsumer<K,V> implements Consumer<K,V> {
      * for the same partition more than once, the latest offset will be used on the next poll(). Note that you may lose data if this API is 
      * arbitrarily used in the middle of consumption, to reset the fetch offsets  
      */
-    @Override
+    
     public void seek(Map<TopicPartition, Long> offsets) {
     }
 
@@ -609,7 +609,7 @@ public class KafkaConsumer<K,V> implements Consumer<K,V> {
      * @param partitions The list of partitions to return the last committed offset for
      * @return The list of offsets committed on the last {@link #commit(boolean) commit(sync)} 
      */
-    @Override
+    
     public Map<TopicPartition, Long> committed(Collection<TopicPartition> partitions) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException();
@@ -627,12 +627,12 @@ public class KafkaConsumer<K,V> implements Consumer<K,V> {
         return null;
     }
 
-    @Override
+    
     public Map<MetricName, ? extends Metric> metrics() {
         return Collections.unmodifiableMap(this.metrics.metrics());
     }
 
-    @Override
+    
     public void close() {
         log.trace("Closing the Kafka consumer.");
         subscribedTopics.clear();

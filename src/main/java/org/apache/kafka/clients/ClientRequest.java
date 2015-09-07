@@ -37,7 +37,7 @@ public final class ClientRequest {
         this.expectResponse = expectResponse;
     }
 
-    @Override
+    
     public String toString() {
         return "ClientRequest(expectResponse=" + expectResponse + ", payload=" + attachment + ", request=" + request + ")";
     }

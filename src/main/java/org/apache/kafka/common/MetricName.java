@@ -137,7 +137,7 @@ public final class MetricName {
         return this.description;
     }
 
-    @Override
+    
     public int hashCode() {
         if (hash != 0)
             return hash;
@@ -150,7 +150,7 @@ public final class MetricName {
         return result;
     }
 
-    @Override
+    
     public boolean equals(Object obj) {
         if (this == obj)
             return true;
@@ -177,7 +177,7 @@ public final class MetricName {
         return true;
     }
 
-    @Override
+    
     public String toString() {
         return "MetricName [name=" + name + ", group=" + group + ", description="
                 + description + ", tags=" + tags + "]";

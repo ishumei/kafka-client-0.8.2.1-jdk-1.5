@@ -24,7 +24,7 @@ import java.util.Map;
 public class StringSerializer implements Serializer<String> {
     private String encoding = "UTF8";
 
-    @Override
+    
     public void configure(Map<String, ?> configs, boolean isKey) {
         String propertyName = isKey ? "key.serializer.encoding" : "value.serializer.encoding";
         Object encodingValue = configs.get(propertyName);
@@ -34,7 +34,7 @@ public class StringSerializer implements Serializer<String> {
             encoding = (String) encodingValue;
     }
 
-    @Override
+    
     public byte[] serialize(String topic, String data) {
         try {
             if (data == null)
@@ -46,7 +46,7 @@ public class StringSerializer implements Serializer<String> {
         }
     }
 
-    @Override
+    
     public void close() {
         // nothing to do
     }

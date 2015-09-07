@@ -93,7 +93,7 @@ public class ProduceResponse extends AbstractRequestResponse {
             this.baseOffset = baseOffset;
         }
 
-        @Override
+        
         public String toString() {
             StringBuilder b = new StringBuilder();
             b.append('{');

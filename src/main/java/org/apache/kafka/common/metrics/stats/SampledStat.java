@@ -39,7 +39,7 @@ public abstract class SampledStat implements MeasurableStat {
         this.samples = new ArrayList<Sample>(2);
     }
 
-    @Override
+    
     public void record(MetricConfig config, double value, long timeMs) {
         Sample sample = current(timeMs);
         if (sample.isComplete(timeMs, config))
@@ -65,7 +65,7 @@ public abstract class SampledStat implements MeasurableStat {
         return new Sample(this.initialValue, timeMs);
     }
 
-    @Override
+    
     public double measure(MetricConfig config, long now) {
         purgeObsoleteSamples(config, now);
         return combine(this.samples, config, now);

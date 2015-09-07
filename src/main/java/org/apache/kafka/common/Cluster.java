@@ -166,7 +166,7 @@ public final class Cluster {
         return this.partitionsByTopic.keySet();
     }
 
-    @Override
+    
     public String toString() {
         return "Cluster(nodes = " + this.nodes + ", partitions = " + this.partitionsByTopicPartition.values() + ")";
     }

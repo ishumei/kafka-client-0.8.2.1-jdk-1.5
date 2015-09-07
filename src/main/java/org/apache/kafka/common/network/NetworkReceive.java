@@ -38,22 +38,22 @@ public class NetworkReceive implements Receive {
         this.buffer = null;
     }
 
-    @Override
+    
     public int source() {
         return source;
     }
 
-    @Override
+    
     public boolean complete() {
         return !size.hasRemaining() && !buffer.hasRemaining();
     }
 
-    @Override
+    
     public ByteBuffer[] reify() {
         return new ByteBuffer[] { this.buffer };
     }
 
-    @Override
+    
     public long readFrom(ScatteringByteChannel channel) throws IOException {
         int read = 0;
         if (size.hasRemaining()) {

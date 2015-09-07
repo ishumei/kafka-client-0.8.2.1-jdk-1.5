@@ -32,18 +32,18 @@ public final class FutureRecordMetadata implements Future<RecordMetadata> {
         this.relativeOffset = relativeOffset;
     }
 
-    @Override
+    
     public boolean cancel(boolean interrupt) {
         return false;
     }
 
-    @Override
+    
     public RecordMetadata get() throws InterruptedException, ExecutionException {
         this.result.await();
         return valueOrError();
     }
 
-    @Override
+    
     public RecordMetadata get(long timeout, TimeUnit unit) throws InterruptedException, ExecutionException, TimeoutException {
         boolean occurred = this.result.await(timeout, unit);
         if (!occurred)
@@ -62,12 +62,12 @@ public final class FutureRecordMetadata implements Future<RecordMetadata> {
         return this.relativeOffset;
     }
 
-    @Override
+    
     public boolean isCancelled() {
         return false;
     }
 
-    @Override
+    
     public boolean isDone() {
         return this.result.completed();
     }

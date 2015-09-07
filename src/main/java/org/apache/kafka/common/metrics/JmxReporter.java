@@ -57,11 +57,11 @@ public class JmxReporter implements MetricsReporter {
         this.prefix = prefix;
     }
 
-    @Override
+    
     public void configure(Map<String, ?> configs) {
     }
 
-    @Override
+    
     public void init(List<KafkaMetric> metrics) {
         synchronized (lock) {
             for (KafkaMetric metric : metrics)
@@ -71,7 +71,7 @@ public class JmxReporter implements MetricsReporter {
         }
     }
 
-    @Override
+    
     public void metricChange(KafkaMetric metric) {
         synchronized (lock) {
             KafkaMbean mbean = addAttribute(metric);
@@ -157,7 +157,7 @@ public class JmxReporter implements MetricsReporter {
             this.metrics.put(name, metric);
         }
 
-        @Override
+        
         public Object getAttribute(String name) throws AttributeNotFoundException, MBeanException, ReflectionException {
             if (this.metrics.containsKey(name))
                 return this.metrics.get(name).value();
@@ -165,7 +165,7 @@ public class JmxReporter implements MetricsReporter {
                 throw new AttributeNotFoundException("Could not find attribute " + name);
         }
 
-        @Override
+        
         public AttributeList getAttributes(String[] names) {
             try {
                 AttributeList list = new AttributeList();
@@ -178,7 +178,7 @@ public class JmxReporter implements MetricsReporter {
             }
         }
 
-        @Override
+        
         public MBeanInfo getMBeanInfo() {
             MBeanAttributeInfo[] attrs = new MBeanAttributeInfo[metrics.size()];
             int i = 0;
@@ -191,12 +191,12 @@ public class JmxReporter implements MetricsReporter {
             return new MBeanInfo(this.getClass().getName(), "", attrs, null, null, null);
         }
 
-        @Override
+        
         public Object invoke(String name, Object[] params, String[] sig) throws MBeanException, ReflectionException {
             throw new UnsupportedOperationException("Set not allowed.");
         }
 
-        @Override
+        
         public void setAttribute(Attribute attribute) throws AttributeNotFoundException,
                                                      InvalidAttributeValueException,
                                                      MBeanException,
@@ -204,7 +204,7 @@ public class JmxReporter implements MetricsReporter {
             throw new UnsupportedOperationException("Set not allowed.");
         }
 
-        @Override
+        
         public AttributeList setAttributes(AttributeList list) {
             throw new UnsupportedOperationException("Set not allowed.");
         }

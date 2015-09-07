@@ -29,7 +29,7 @@ public class ArrayOf extends Type {
         this.type = type;
     }
 
-    @Override
+    
     public void write(ByteBuffer buffer, Object o) {
         Object[] objs = (Object[]) o;
         int size = objs.length;
@@ -38,7 +38,7 @@ public class ArrayOf extends Type {
             type.write(buffer, objs[i]);
     }
 
-    @Override
+    
     public Object read(ByteBuffer buffer) {
         int size = buffer.getInt();
         Object[] objs = new Object[size];
@@ -47,7 +47,7 @@ public class ArrayOf extends Type {
         return objs;
     }
 
-    @Override
+    
     public int sizeOf(Object o) {
         Object[] objs = (Object[]) o;
         int size = 4;
@@ -60,12 +60,12 @@ public class ArrayOf extends Type {
         return type;
     }
 
-    @Override
+    
     public String toString() {
         return "ARRAY(" + type + ")";
     }
 
-    @Override
+    
     public Object[] validate(Object item) {
         try {
             Object[] array = (Object[]) item;

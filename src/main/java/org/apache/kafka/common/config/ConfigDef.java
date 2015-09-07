@@ -182,7 +182,7 @@ public class ConfigDef {
                     if (value instanceof List)
                         return (List<?>) value;
                     else if (value instanceof String)
-                        if (trimmed.isEmpty())
+                        if (trimmed.length() == 0)
                             return Collections.emptyList();
                         else
                             return Arrays.asList(trimmed.split("\\s*,\\s*", -1));
@@ -279,7 +279,7 @@ public class ConfigDef {
       return new ValidString(validStrings);
     }
 
-    @Override
+    
     public void ensureValid(String name, Object o) {
 
       String s = (String) o;

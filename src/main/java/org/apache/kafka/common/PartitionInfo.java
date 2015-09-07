@@ -67,7 +67,7 @@ public class PartitionInfo {
         return inSyncReplicas;
     }
 
-    @Override
+    
     public String toString() {
         return String.format("Partition(topic = %s, partition = %d, leader = %d, replicas = %s, isr = %s",
                              topic,

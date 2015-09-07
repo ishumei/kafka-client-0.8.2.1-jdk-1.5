@@ -106,7 +106,7 @@ public class NetworkClient implements KafkaClient {
      * @param now The current timestamp
      * @return True if we are ready to send to the given node
      */
-    @Override
+    
     public boolean ready(Node node, long now) {
         if (isReady(node, now))
             return true;
@@ -126,7 +126,7 @@ public class NetworkClient implements KafkaClient {
      * @param now The current timestamp
      * @return The number of milliseconds to wait.
      */
-    @Override
+    
     public long connectionDelay(Node node, long now) {
         return connectionStates.connectionDelay(node.id(), now);
     }
@@ -137,7 +137,7 @@ public class NetworkClient implements KafkaClient {
      * @param now The current time in ms
      * @return true if the node is ready
      */
-    @Override
+    
     public boolean isReady(Node node, long now) {
         int nodeId = node.id();
         if (!this.metadataFetchInProgress && this.metadata.timeToNextUpdate(now) == 0)
@@ -164,7 +164,7 @@ public class NetworkClient implements KafkaClient {
      * @param now The current time in milliseconds
      * @return The list of responses received
      */
-    @Override
+    
     public List<ClientResponse> poll(List<ClientRequest> requests, long timeout, long now) {
         List<NetworkSend> sends = new ArrayList<NetworkSend>();
 
@@ -206,7 +206,7 @@ public class NetworkClient implements KafkaClient {
     /**
      * Get the number of in-flight requests
      */
-    @Override
+    
     public int inFlightRequestCount() {
         return this.inFlightRequests.inFlightRequestCount();
     }
@@ -216,7 +216,7 @@ public class NetworkClient implements KafkaClient {
      * @param key The api key
      * @return A request header with the appropriate client id and correlation id
      */
-    @Override
+    
     public RequestHeader nextRequestHeader(ApiKeys key) {
         return new RequestHeader(key.id, clientId, correlation++);
     }
@@ -224,7 +224,7 @@ public class NetworkClient implements KafkaClient {
     /**
      * Interrupt the client if it is blocked waiting on I/O.
      */
-    @Override
+    
     public void wakeup() {
         this.selector.wakeup();
     }
@@ -232,7 +232,7 @@ public class NetworkClient implements KafkaClient {
     /**
      * Close the network client
      */
-    @Override
+    
     public void close() {
         this.selector.close();
     }
