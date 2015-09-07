@@ -16,10 +16,8 @@
  */
 package org.apache.kafka.clients.producer;
 
-import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Deque;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -29,6 +27,8 @@ import org.apache.kafka.clients.producer.internals.FutureRecordMetadata;
 import org.apache.kafka.clients.producer.internals.Partitioner;
 import org.apache.kafka.clients.producer.internals.ProduceRequestResult;
 import org.apache.kafka.common.*;
+import org.apache.kafka.jdk.ArrayDeque;
+import org.apache.kafka.jdk.Deque;
 
 
 /**

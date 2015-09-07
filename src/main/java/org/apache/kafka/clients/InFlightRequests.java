@@ -12,11 +12,12 @@
  */
 package org.apache.kafka.clients;
 
-import java.util.ArrayDeque;
 import java.util.Collections;
-import java.util.Deque;
 import java.util.HashMap;
 import java.util.Map;
+
+import org.apache.kafka.jdk.ArrayDeque;
+import org.apache.kafka.jdk.Deque;
 
 /**
  * The set of requests which have been sent or are being sent but haven't yet received a response
